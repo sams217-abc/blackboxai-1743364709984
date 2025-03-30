@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Couple Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .message-container {
+      scrollbar-width: thin;
+      scrollbar-color: #db2777 #f3f4f6;
+    }
+    .message-container::-webkit-scrollbar {
+      width: 6px;
+    }
+    .message-container::-webkit-scrollbar-track {
+      background: #f3f4f6;
+    }
+    .message-container::-webkit-scrollbar-thumb {
+      background-color: #db2777;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="flex flex-col h-screen">
+    <!-- Header -->
+    <header class="bg-pink-600 text-white p-4 shadow-md">
+      <div class="flex justify-between items-center">
+        <h1 class="text-xl font-bold">Couple Chat</h1>
+        <div class="flex space-x-4">
+          <button id="profile-btn" class="hover:text-pink-200">
+            <i class="fas fa-user"></i>
+          </button>
+          <button id="logout-btn" class="hover:text-pink-200">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Messages Container -->
+    <div id="messages" class="message-container flex-1 p-4 overflow-y-auto">
+      <!-- Messages will be dynamically inserted here -->
+      <div class="text-center text-gray-500 py-8" id="no-messages">
+        Start your conversation with your partner!
+      </div>
+    </div>
+
+    <!-- Message Input -->
+    <div class="bg-white p-4 border-t border-gray-200">
+      <div class="flex items-center space-x-2">
+        <button id="attach-btn" class="text-pink-600 hover:text-pink-800 p-2">
+          <i class="fas fa-paperclip"></i>
+        </button>
+        <input 
+          id="message-input" 
+          type="text" 
+          placeholder="Type a message..." 
+          class="flex-1 border border-gray-300 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-pink-500"
+        >
+        <button id="send-btn" class="bg-pink-600 text-white rounded-full p-2 hover:bg-pink-700">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden file input for attachments -->
+  <input type="file" id="file-input" class="hidden" accept="image/*">
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script src="firebase.js"></script>
+  <script src="app.js"></script>
+  <script src="messaging.js"></script>
+</body>
+</html>
